@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_demo/html_utils.dart';
+import 'package:flutter_web_demo/js_utils.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,6 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    callJsMethod('alert', ['Hello from Dart!']);
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -55,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+
+    if (_counter > 2){
+      navigation('https://www.baidu.com');
+    }
   }
 
   @override
